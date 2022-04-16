@@ -8,11 +8,14 @@ public class MoneyContainer : MonoBehaviour
     [SerializeField] private Shop _shop;
     [SerializeField] private TMP_Text _moneyView;
     [SerializeField] private int _money;
+    private int _startMoney = 200;
 
     public int Money => _money;
+    public int StartMoney => _startMoney;
 
     private void Start()
     {
+        _money = _startMoney;
         UpdateView();
     }
 
@@ -36,8 +39,10 @@ public class MoneyContainer : MonoBehaviour
     public void TakeMoney()
     {
         Increase(1000);
-        UpdateView();
+
+        Debug.Log("Complete");
         
         _shop.CheckRareLimitMoney();
+        UpdateView();
     }
 }

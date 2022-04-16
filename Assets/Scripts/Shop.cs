@@ -8,9 +8,8 @@ public class Shop : MonoBehaviour
 
     [SerializeField] private MoneyContainer _moneyContainer;
     [SerializeField] private Inventory _inventory;
-
+   
     private int _startAmount = 99;
-    private int _rareLimitMoney = 250;
 
     private void Start()
     {
@@ -41,7 +40,7 @@ public class Shop : MonoBehaviour
 
     public void CheckRareLimitMoney()
     {
-        if (_moneyContainer.Money > _rareLimitMoney)
+        if (_moneyContainer.Money > _moneyContainer.StartMoney * 2)
         {
             foreach (var slot in _slots)
             {
